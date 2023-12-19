@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EveningWebAPIExample", "EveningWebAPIExample\EveningWebAPIExample.csproj", "{51B8AC00-86FC-4E23-9EB3-136F7E9FE5A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiMorningClass", "WebApiMorningClass\WebApiMorningClass.csproj", "{9C07E4CB-E0E5-47D7-92D6-974289E4CC9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51B8AC00-86FC-4E23-9EB3-136F7E9FE5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51B8AC00-86FC-4E23-9EB3-136F7E9FE5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51B8AC00-86FC-4E23-9EB3-136F7E9FE5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51B8AC00-86FC-4E23-9EB3-136F7E9FE5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C07E4CB-E0E5-47D7-92D6-974289E4CC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C07E4CB-E0E5-47D7-92D6-974289E4CC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C07E4CB-E0E5-47D7-92D6-974289E4CC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C07E4CB-E0E5-47D7-92D6-974289E4CC9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {10280C84-6093-4048-BB8C-F364D71D5A9D}
+		SolutionGuid = {6C08C04D-7B90-4A96-AF86-838D9FE4A179}
 	EndGlobalSection
 EndGlobal
