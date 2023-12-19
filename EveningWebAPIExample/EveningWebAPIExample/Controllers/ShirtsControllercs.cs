@@ -1,4 +1,5 @@
-﻿using EveningWebAPIExample.Models;
+﻿using EveningWebAPIExample.Filters;
+using EveningWebAPIExample.Models;
 using EveningWebAPIExample.Models.Respositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,40 +11,54 @@ namespace EveningWebAPIExample.Controllers
     {
 
         [HttpGet]
-        public string GetShirts()
+        public IActionResult GetShirts()
         {
-            return " Reading all the shirts";
+            return Ok(ShirtRepository.GetShirts());
         }
         [HttpGet("{id}")]
-        public IActionResult GetShirtsById(int id)
+        [Shirt_ValidateShirtIdFilter]
+        public IActionResult GetShirtById(int id)
         {
-            if (id <= 0)
-            {
-                return BadRequest();
-            }
-
-            var shirt = ShirtRepository.GetShirtById(id);
-            if (shirt != null)
-            {
-                return NotFound();
-            }
-            return Ok(shirt);
+            return Ok(ShirtRepository.GetShirtById(id));
         }
     
         [HttpPost]
-        public string CreateShirt([FromForm] Shirt shirt)
+        [Shirt_ValidateCreateShirtFilter]
+        public IActionResult CreateShirt([FromForm] Shirt shirt)
         {
-            return $"Creating a shirt";
+            //if (shirt == null) return BadRequest();
+            //var existingShirt = ShirtRepository.GetShirtByProperties(shirt.Brand, shirt.Gender, shirt.Color, shirt.Size);
+            //if (existingShirt != null) return BadRequest();
+            ShirtRepository.AddShirt(shirt);
+            return CreatedAtAction(nameof(GetShirtById),
+                new { id = shirt.Id },
+                shirt);
+
+           // return Ok("this is to create a shirt");
         }
         [HttpPut("{id}")]
-        public string UpdateShirt(int id)
+        [Shirt_ValidateShirtIdFilter]
+        [Shirt_ValidateUpdateShirtFilter]
+        public IActionResult UpdateShirt(int id, Shirt shirt)
         {
-            return $"Updating shirt: , {id}";
+            //if(id != shirt.Id) return BadRequest();
+            try
+            {
+
+                ShirtRepository.UpdateShirt(shirt);
+            }
+            catch
+            {
+                if (!ShirtRepository.ShirtExists(id))
+                    return NotFound();
+                throw;
+            }
+            return NoContent();
         }
         [HttpDelete("{id}")]
-        public string DeleteShirt(int id)
+        public IActionResult DeleteShirt(int id)
         {
-            return $"Deleting shirt: , {id}";
+            return Ok(" this is for our delete");
         }
 
     }

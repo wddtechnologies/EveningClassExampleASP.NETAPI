@@ -12,8 +12,8 @@ namespace EveningWebAPIExample.Models
         [Required]
         public string? Color { get; set; }
 
-        [Shirts_EnsureCorrectSizeAttribute]
-        public int Size { get; set; }
+        [Shirts_EnsureCorrectSize]
+        public int? Size { get; set; }
         [Required]
         public string? Gender { get; set; }
         public double? Price { get; set; }
