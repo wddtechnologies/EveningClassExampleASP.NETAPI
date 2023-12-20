@@ -1,18 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-using WebApiMorningClass.Models;
+﻿using EveningWebAPIExample.Models.Respositories;
+using EveningWebAPIExample.Models;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics.Eventing.Reader;
-using WebApiMorningClass.Models.Repositories;
 
-namespace WebApiMorningClass.Filters
+namespace EveningWebAPIExample.Filters.ActionFilters
 {
     public class Shirt_ValidateCreateShirtFilterAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
-          
-     
+
+
             var shirt = context.ActionArguments["shirt"] as Shirt;
             if (shirt == null)
             {
@@ -36,10 +35,8 @@ namespace WebApiMorningClass.Filters
                     context.Result = new BadRequestObjectResult(problemDetails);
                 }
             }
-            
-        }
-       
-    }
-   
-}
 
+        }
+
+    }
+}

@@ -1,4 +1,4 @@
-namespace WebApiMorningClass
+namespace EveningWebAPIExample
 {
     public class WeatherForecast
     {
