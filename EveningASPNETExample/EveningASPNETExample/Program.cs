@@ -9,7 +9,11 @@ builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", opt
 });
 builder.Services.AddAuthorization(options =>
 {
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
     options.AddPolicy("MustBelongToHRDepartment", policy => policy.RequireClaim("Department", "HR"));
+    options.AddPolicy("HRMangerOnly", policy => policy
+    .RequireClaim("Department", "HR")
+    .RequireClaim("Manager"));
 });
 
 var app = builder.Build();

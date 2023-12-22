@@ -27,7 +27,9 @@ namespace EveningASPNETExample.Pages.Account
                 {
                     new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@mywebsite.com"),
-                    new Claim("Department","HR")
+                    new Claim("Department","HR"),
+                    new Claim("Admin", "true"),
+                    new Claim("Manager", "true")
                 };
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
